@@ -117,4 +117,14 @@
         }
         \end{lstlisting}
     \end{frame}
+
+% FRAME:HASKELL
+    \lstset{language=Haskell}
+    \begin{frame}[fragile=singleslide]
+        \frametitle{New Fangled Haskell Implementation}
+
+        \begin{lstlisting}
+        fibs = 1 : 1 : [ a + b | (a, b) <- zip fibs (tail fibs) ]
+        \end{lstlisting}
+    \end{frame}
 \end{document}
