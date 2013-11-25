@@ -16,3 +16,4 @@ cabal.sandbox.config
 *.snm
 *.toc
 *.pdf
+*.vrb
