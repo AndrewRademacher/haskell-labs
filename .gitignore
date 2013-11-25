@@ -7,3 +7,12 @@ cabal.sandbox.config
 *.o
 
 *.swp
+
+*.aux
+*.dvi
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.pdf
