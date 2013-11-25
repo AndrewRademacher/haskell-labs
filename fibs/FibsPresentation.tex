@@ -13,8 +13,23 @@
     \definecolor{gray}{rgb}{0.5,0.5,0.5}
     \definecolor{mauve}{rgb}{0.58,0,0.82}
 
+    \lstdefinelanguage{JavaScript}{
+        keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+        keywordstyle=\color{blue}\bfseries,
+        ndkeywords={class, export, boolean, throw, implements, import, this},
+        ndkeywordstyle=\color{darkgray}\bfseries,
+        identifierstyle=\color{black},
+        sensitive=false,
+        comment=[l]{//},
+        morecomment=[s]{/*}{*/},
+        commentstyle=\color{purple}\ttfamily,
+        stringstyle=\color{red}\ttfamily,
+        morestring=[b]',
+        morestring=[b]"
+    }
+
     \lstset{frame=tb,
-        language=Java,
+        language=JavaScript,
         aboveskip=3mm,
         belowskip=3mm,
         showstringspaces=false,
@@ -69,7 +84,24 @@
         \end{columns}
     \end{frame}
 
+% FRAME:JAVASCRIPT
+    \lstset{language=JavaScript}
+    \begin{frame}[fragile=singleslide]
+        \frametitle{Traditional JavaScript Implementation}
+
+        \begin{lstlisting}
+        function getFibs (n) {
+            var fibs = [1, 1];
+            for (var i = 2; i <= n; i++) 
+                fibs.push(fibs[fibs.length - 1] + fibs[fibs.length - 2]);
+
+            return fibs;
+        }
+        \end{lstlisting}
+    \end{frame}
+
 % FRAME:JAVA
+    \lstset{language=Java}
     \begin{frame}[fragile=singleslide]
         \frametitle{Traditional Java Implementation}
         
