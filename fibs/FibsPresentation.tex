@@ -1,11 +1,43 @@
 \documentclass{beamer}
 
+\usepackage{adjustbox}
 \usepackage{listings}
 \usepackage{graphicx}
 \usepackage{mathtools}
 \usepackage{tikz}
 
-\usetikzlibrary{matrix,chains,scopes,fit}
+\usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
+                decorations.pathreplacing,decorations.pathmorphing,shapes,%
+                matrix,shapes.symbols}
+
+\tikzset{
+    >=stealth',
+    punktchain/.style={
+        rectangle,
+        rounded corners,
+        draw=black, very thick,
+        text width=10em,
+        minimum height=3em,
+        text centered,
+        on chain
+    },
+    line/.style={draw, thick, <-},
+    element/.style={
+        tape,
+        top color=white,
+        bottom color=blue!50!black!60!,
+        minimum width=8em,
+        draw=blue!40!black!90, very thick,
+        text width=10em,
+        minimum height=3.5em,
+        text centered,
+        on chain
+    },
+    every join/.style={->, thick, shorten >=1pt},
+    decoration={brace},
+    tuborg/.style={decorate},
+    tubnode/.style={midway, right=2pt}
+}
 
 \begin{document}
     \title{Demystifying Haskell}
@@ -124,46 +156,32 @@
 % FRAME:PROCESS
     \begin{frame}[fragile=singleslide]
         \frametitle{Imperative Process}
+        
+        \adjustbox{scale=0.5}{
+            \begin{tikzpicture}[node distance=0.8cm,start chain=going below]
+                \node[punktchain, join] (defineN) {Define N};
+                \node[punktchain, join] (alloc) {Allocate array of size N};
+                \node[punktchain, join] (pop0) {Populate array[0] as 1};
+                \node[punktchain, join] (pop1) {Populate array[1] as 1};
+                \node[punktchain, join] (defineI) {Define I as 2};
+                
+                \node[punktchain, join] (if) {If I less than or equal to N};
+                \begin{scope}[start branch=venstre, every join/.style={->, thick, shorten <=1pt}]
+                    \node[punktchain, on chain=going right, join=by {->}] 
+                        (popI) {Populate array[I] as (array[I-1] + array[I-2])};
+                    \node[punktchain, on chain=going right, join=by {->}]
+                        (setI) {Set I as I + 1};
+                \end{scope}
+                
+                \node[punktchain, join] (return) {Return array};
 
-        \sffamily\begin{tikzpicture}
-            \matrix (m) [
-                matrix of nodes,
-                column sep=5mm,
-                row sep=1cm,
-                nodes={
-                    draw,
-                    line width=1pt,
-                    anchor=center,
-                    text centered,
-                    rounded corners,
-                    minimum width=1.5cm, minimum height=8mm
-                },
-                nodes in empty cells
-            ] {
-                Define N \\
-                Allocate array of size N \\
-                Populate array[0] as 1 \\
-                Populate array[1] as 1 \\
-                Define I as 2 \\
-                If I <= N   &   Populate array[I] as array[I-1] + array[I-2]    &   Set I as I + 1 \\
-                Return array \\
-            };
+                % -- Post processing -- %
 
-            { [start chain,every on chain/.style={join}, every join/.style={line width=1pt}]
-                \chainin (m-1-1);
-                \chainin (m-2-1);
-                \chainin (m-3-1);
-                \chainin (m-4-1);
-                \chainin (m-5-1);
-                \chainin (m-6-1);
-                \chainin (m-7-1);
-            };
-
-            \tikzset{blue dotted/.style={draw=blue!50!white, line width=1pt,
-                                         dash pattern=on 1pt off 4pt on 6pt off 4pt,
-                                         inner sep=4mm, rectangle, rounded corners}};
-
-        \end{tikzpicture}
+                \draw (if.east) node [fill=white] {True};
+                \draw[|-,-|,->,thick] (setI.north) |-+(0,1em)-| (if.north);
+                \draw (if.south) node [fill=white] {False};
+            \end{tikzpicture}
+        }
     \end{frame}
 
 % FRAME:HASKELL
