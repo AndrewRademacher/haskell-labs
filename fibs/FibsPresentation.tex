@@ -193,4 +193,49 @@
         fibs = 1 : 1 : [ a + b | (a, b) <- zip fibs (tail fibs) ]
         \end{lstlisting}
     \end{frame}
+
+% FRAME:WHAT
+    \begin{frame}[fragile=singleslide]
+        \frametitle{What just happened?}
+
+        \begin{figure}
+            \centering
+            \includegraphics[scale=0.35]{./fibs/images/lolwutpear.jpg}
+        \end{figure}
+    \end{frame}
+
+% FRAME:ASSIGNMENT
+    \lstset{language=Haskell}
+    \begin{frame}[fragile=singleslide]
+        \frametitle{Values != Variables}
+
+        \begin{columns}[c]
+            \begin{column}[T]{5cm}
+                \begin{itemize}
+                    \item Haskell has no variables
+                    \item Values can be bound to a name
+                    \item Values can only be assigned once
+                    \item Values never change
+                \end{itemize}
+            \end{column}
+            \begin{column}[T]{5cm}
+                \begin{lstlisting}
+                fibs = 1 // Valid assignment
+                fibs = 2 // Invalid assignment
+                \end{lstlisting}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+% FRAME:LISTS
+    \begin{frame}[fragile=singleslide]
+        \frametitle{Lists}
+
+        \begin{columns}[c]
+            \begin{column}[T]{5cm}
+            \end{column}
+            \begin{column}[T]{5cm}
+            \end{column}
+        \end{columns}
+    \end{frame}
 \end{document}
