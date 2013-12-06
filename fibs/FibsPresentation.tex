@@ -246,18 +246,55 @@ fibs = 2 // Invalid assignment
                 \begin{itemize}
                     \item Lists are singly-linked
                     \item Lists are homogeneous
-                    \item Lists use head insertion
                     \item Lists are immutable
+                    \item Lists use head insertion
+                    \item Two lists can share structure
                 \end{itemize}
             \end{column}
             \begin{column}[T]{5cm}
-                \adjustbox{scale=0.5} {
-                    \begin{tikzpicture}[node distance=0.8cm, start chain=going right]
-                        \node[llchain, join] {45};
-                        \node[llchain, join] {25};
-                        \node[llchain, join] {35};
-                    \end{tikzpicture}
-                }
+                \begin{figure}
+                    \centering
+                    \adjustbox{scale=0.5} {
+                        \begin{tikzpicture}[list/.style={rectangle split, rectangle split parts=2, draw, rectangle split horizontal}, >=stealth, start chain]
+                            \node[list,on chain] (A) {12};
+                            \node[list,on chain] (B) {99};
+                            \node[list,on chain] (C) {37};
+                            \node[on chain,draw,inner sep=6pt] (D) {};
+                            \draw (D.north east) -- (D.south west);
+                            \draw (D.north west) -- (D.south west);
+                            \draw[*->] let \p1 = (A.two), \p2 = (A.center) in (\x1,\y2) -- (B);
+                            \draw[*->] let \p1 = (B.two), \p2 = (B.center) in (\x1,\y2) -- (C);
+                            \draw[*->] let \p1 = (C.two), \p2 = (C.center) in (\x1,\y2) -- (D);
+                        \end{tikzpicture}
+                    }
+                    \adjustbox{scale=0.5} {
+                        \begin{tikzpicture}[list/.style={rectangle split, rectangle split parts=2, draw, rectangle split horizontal}, >=stealth, start chain]
+                            \node[list,on chain] (A) {3.3526};
+                            \node[list,on chain] (B) {3.3646};
+                            \node[list,on chain] (C) {5.5647};
+                            \node[on chain,draw,inner sep=6pt] (D) {};
+                            \draw (D.north east) -- (D.south west);
+                            \draw (D.north west) -- (D.south west);
+                            \draw[*->] let \p1 = (A.two), \p2 = (A.center) in (\x1,\y2) -- (B);
+                            \draw[*->] let \p1 = (B.two), \p2 = (B.center) in (\x1,\y2) -- (C);
+                            \draw[*->] let \p1 = (C.two), \p2 = (C.center) in (\x1,\y2) -- (D);
+                        \end{tikzpicture}
+                    }
+                    \adjustbox{scale=0.5} {
+                        \begin{tikzpicture}[list/.style={rectangle split, rectangle split parts=2, draw, rectangle split horizontal}, >=stealth, start chain]
+                            \node[list,on chain] (A) {'A'};
+                            \node[list,on chain] (B) {'B'};
+                            \node[list,on chain] (C) {'C'};
+                            \node[on chain,draw,inner sep=6pt] (D) {};
+                            \draw (D.north east) -- (D.south west);
+                            \draw (D.north west) -- (D.south west);
+                            \draw[*->] let \p1 = (A.two), \p2 = (A.center) in (\x1,\y2) -- (B);
+                            \draw[*->] let \p1 = (B.two), \p2 = (B.center) in (\x1,\y2) -- (C);
+                            \draw[*->] let \p1 = (C.two), \p2 = (C.center) in (\x1,\y2) -- (D);
+                        \end{tikzpicture}
+                    }
+                    \caption{Haskell Lists}
+                \end{figure}
             \end{column}
         \end{columns}
     \end{frame}
