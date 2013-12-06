@@ -74,9 +74,8 @@
 
     \lstset{
         frame=tb,
-        framexleftmargin=5mm,
         basicstyle=\ttfamily,
-        columns=fullflexible,
+        columns=flexible,
         breaklines=true,
         breakatwhitespace=true,
         aboveskip=3mm,
@@ -295,7 +294,42 @@ fibs = 2 // Invalid assignment
                     }
                     \caption{Haskell Lists}
                 \end{figure}
+                \begin{figure}
+                    \adjustbox{scale=0.5} {
+                        \begin{tikzpicture}[list/.style={rectangle split, rectangle split parts=2, draw, rectangle split horizontal}, >=stealth, start chain]
+                            \node[list,on chain] (A) {'O'};
+                            \node[list,on chain] (B) {'R'};
+                            \node[list,on chain] (C) {'D'};
+                            \node[on chain,draw,inner sep=6pt] (D) {};
+                            \draw (D.north east) -- (D.south west);
+                            \draw (D.north west) -- (D.south west);
+                            \draw[*->] let \p1 = (A.two), \p2 = (A.center) in (\x1,\y2) -- (B);
+                            \draw[*->] let \p1 = (B.two), \p2 = (B.center) in (\x1,\y2) -- (C);
+                            \draw[*->] let \p1 = (C.two), \p2 = (C.center) in (\x1,\y2) -- (D);
+
+                            \node[list,on chain] (E) at (-1,-2) {'W'};
+                            \draw[*->] let \p1 = (E.two), \p2 = (E.center) in (\x1,\y2) -- (A);
+                        \end{tikzpicture}
+                    }
+                    \caption{List Insertion}
+                \end{figure}
             \end{column}
         \end{columns}
+    \end{frame}
+
+% FRAME:LIST OPERATIONS
+    \begin{frame}[fragile=singleslide]
+        \frametitle{Basic List Operations}
+
+        \begin{lstlisting}
+listA = [1, 2, 3, 4, 5]             // Literal
+listB = [6, 7, 8]                   // Literal
+
+listC = listA ++ listB              // Concatenation
+// listC = [1, 2, 3, 4, 5, 6, 7, 8]
+
+listD = 0 : listC                   // Insert
+// listD = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+        \end{lstlisting}
     \end{frame}
 \end{document}
