@@ -36,7 +36,16 @@
     every join/.style={->, thick, shorten >=1pt},
     decoration={brace},
     tuborg/.style={decorate},
-    tubnode/.style={midway, right=2pt}
+    tubnode/.style={midway, right=2pt},
+    llchain/.style={
+        rectangle,
+        rounded corners,
+        draw=black, very thick,
+        text width=2em,
+        minimum height=3em,
+        text centered,
+        on chain
+    }
 }
 
 \begin{document}
@@ -63,20 +72,21 @@
         morestring=[b]"
     }
 
-    \lstset{frame=tb,
-        language=JavaScript,
+    \lstset{
+        frame=tb,
+        framexleftmargin=5mm,
+        basicstyle=\ttfamily,
+        columns=fullflexible,
+        breaklines=true,
+        breakatwhitespace=true,
         aboveskip=3mm,
         belowskip=3mm,
         showstringspaces=false,
-        columns=flexible,
-        basicstyle={\small\ttfamily},
-        numbers=none,
+        numbers=left,
         numberstyle=\tiny\color{gray},
         keywordstyle=\color{blue},
         commentstyle=\color{dkgreen},
         stringstyle=\color{mauve},
-        breaklines=true,
-        breakatwhitespace=true
         tabsize=3
     }
 
@@ -125,13 +135,13 @@
         \frametitle{Traditional JavaScript Implementation}
 
         \begin{lstlisting}
-        function getFibs (n) {
-            var fibs = [1, 1];
-            for (var i = 2; i < n; i++) 
-                fibs.push(fibs[fibs.length - 1] + fibs[fibs.length - 2]);
+function getFibs (n) {
+    var fibs = [1, 1];
+    for (var i = 2; i < n; i++) 
+        fibs.push(fibs[fibs.length - 1] + fibs[fibs.length - 2]);
 
-            return fibs;
-        }
+    return fibs;
+}
         \end{lstlisting}
     \end{frame}
 
@@ -141,15 +151,15 @@
         \frametitle{Traditional Java Implementation}
         
         \begin{lstlisting}
-        public static BigInteger[] getFibs(int n) {
-            BigInteger[] fibs = new BigInteger[n];
-            fibs[0] = BigInteger.valueOf(1);
-            fibs[1] = BigInteger.valueOf(1);
-            for (int i = 2; i < n; i++)
-                fibs[i] = fibs[i - 1].add(fibs[i - 2]);
+public static BigInteger[] getFibs(int n) {
+    BigInteger[] fibs = new BigInteger[n];
+    fibs[0] = BigInteger.valueOf(1);
+    fibs[1] = BigInteger.valueOf(1);
+    for (int i = 2; i < n; i++)
+        fibs[i] = fibs[i - 1].add(fibs[i - 2]);
 
-            return fibs;
-        }
+    return fibs;
+}
         \end{lstlisting}
     \end{frame}
 
@@ -190,7 +200,7 @@
         \frametitle{New Fangled Haskell Implementation}
 
         \begin{lstlisting}
-        fibs = 1 : 1 : [ a + b | (a, b) <- zip fibs (tail fibs) ]
+fibs = 1 : 1 : [ a + b | (a, b) <- zip fibs (tail fibs) ]
         \end{lstlisting}
     \end{frame}
 
@@ -220,8 +230,8 @@
             \end{column}
             \begin{column}[T]{5cm}
                 \begin{lstlisting}
-                fibs = 1 // Valid assignment
-                fibs = 2 // Invalid assignment
+fibs = 1 // Valid assignment
+fibs = 2 // Invalid assignment
                 \end{lstlisting}
             \end{column}
         \end{columns}
@@ -233,8 +243,21 @@
 
         \begin{columns}[c]
             \begin{column}[T]{5cm}
+                \begin{itemize}
+                    \item Lists are singly-linked
+                    \item Lists are homogeneous
+                    \item Lists use head insertion
+                    \item Lists are immutable
+                \end{itemize}
             \end{column}
             \begin{column}[T]{5cm}
+                \adjustbox{scale=0.5} {
+                    \begin{tikzpicture}[node distance=0.8cm, start chain=going right]
+                        \node[llchain, join] {45};
+                        \node[llchain, join] {25};
+                        \node[llchain, join] {35};
+                    \end{tikzpicture}
+                }
             \end{column}
         \end{columns}
     \end{frame}
