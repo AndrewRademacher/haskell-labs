@@ -474,4 +474,20 @@ complex =
             \end{tikzpicture}
         }
     \end{frame}
+
+% FRAME:ZIP EXAMPLE
+    \begin{frame}[fragile=singleslide]
+        \frametitle{Zip (Lists and Tuples)}
+
+        \begin{lstlisting}
+lLetters = ['a', 'b', 'c', 'd']
+lNumbers = [1, 2, 3, 4]
+
+lZipped = zip lLetters lNumbers
+// lZipped = [('a',1), ('b',2), ('c',3), ('d',4)]
+
+lReversed = zip lNumbers lLetters
+// lReversed = [(1,'a'), (2,'b'), (3,'c'), (4,'d')]
+        \end{lstlisting}
+    \end{frame}
 \end{document}
