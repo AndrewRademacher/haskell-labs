@@ -347,34 +347,46 @@ listD = 0 : listC                   // Insert
                 \end{description}
             \end{column}
             \begin{column}[T]{5cm}
-                \adjustbox{scale=0.5} {
-                    \begin{tikzpicture}[list/.style={rectangle split, rectangle split parts=2, draw, rectangle split horizontal}, >=stealth, start chain]
-                        \node[list,on chain] (A) {12};
-                        \node[list,on chain] (B) {99};
-                        \node[list,on chain] (C) {37};
-                        \node[list,on chain] (D) {43};
-                        \node[on chain,draw,inner sep=6pt] (E) {};
-                        \draw (E.north east) -- (E.south west);
-                        \draw (E.north west) -- (E.south west);
-                        \draw[*->] let \p1 = (A.two), \p2 = (A.center) in (\x1,\y2) -- (B);
-                        \draw[*->] let \p1 = (B.two), \p2 = (B.center) in (\x1,\y2) -- (C);
-                        \draw[*->] let \p1 = (C.two), \p2 = (C.center) in (\x1,\y2) -- (D);
-                        \draw[*->] let \p1 = (D.two), \p2 = (D.center) in (\x1,\y2) -- (E);
+                \begin{figure}
+                    \adjustbox{scale=0.5} {
+                        \begin{tikzpicture}[list/.style={rectangle split, rectangle split parts=2, draw, rectangle split horizontal}, >=stealth, start chain]
+                            \node[list,on chain] (A) {12};
+                            \node[list,on chain] (B) {99};
+                            \node[list,on chain] (C) {37};
+                            \node[list,on chain] (D) {43};
+                            \node[on chain,draw,inner sep=6pt] (E) {};
+                            \draw (E.north east) -- (E.south west);
+                            \draw (E.north west) -- (E.south west);
+                            \draw[*->] let \p1 = (A.two), \p2 = (A.center) in (\x1,\y2) -- (B);
+                            \draw[*->] let \p1 = (B.two), \p2 = (B.center) in (\x1,\y2) -- (C);
+                            \draw[*->] let \p1 = (C.two), \p2 = (C.center) in (\x1,\y2) -- (D);
+                            \draw[*->] let \p1 = (D.two), \p2 = (D.center) in (\x1,\y2) -- (E);
 
-                        \tikzset{blue dotted/.style={draw=blue!50!white, line width=1pt,
-                                    dash pattern=on 1pt off 4pt on 6pt off 4pt,
-                                    inner sep=4mm, rectangle, rounded corners}};
+                            \tikzset{blue dotted/.style={draw=blue!50!white, line width=1pt,
+                                        dash pattern=on 1pt off 4pt on 6pt off 4pt,
+                                        inner sep=4mm, rectangle, rounded corners}};
 
-                        \node (first dotted box) [blue dotted, 
-                                                    fit = (A) ] {};
-                        \node (second dotted box) [blue dotted,
-                                                    fit = (B) (D)] {};
+                            \node (first dotted box) [blue dotted, 
+                                                        fit = (A) ] {};
+                            \node (second dotted box) [blue dotted,
+                                                        fit = (B) (E)] {};
 
-                        \node at (first dotted box.north) [above, inner sep=3mm] {\textbf{head}};
-                        \node at (second dotted box.north) [above, inner sep=3mm] {\textbf{tail}};
+                            \node at (first dotted box.north) [above, inner sep=3mm] {\textbf{head}};
+                            \node at (second dotted box.north) [above, inner sep=3mm] {\textbf{tail}};
 
-                    \end{tikzpicture}
-                }
+                        \end{tikzpicture}
+                    }
+                \end{figure}
+                \begin{figure}
+                    \begin{lstlisting}
+listA = [1, 2, 3, 4]
+
+headA = head listA
+//  headA = 1
+tailA = tail listA
+//  tailA = [2, 3, 4]
+                    \end{lstlisting}
+                \end{figure}
             \end{column}
         \end{columns}
     \end{frame}
