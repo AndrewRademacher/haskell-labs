@@ -407,4 +407,38 @@ complex =
             \end{column}
         \end{columns}
     \end{frame}
+
+% FRAME:ZIP FUNCTION
+    \begin{frame}[fragile=singleslide]
+        \frametitle{Zip (Lists and Tuples)}
+
+        \adjustbox{scale=0.5} {
+            \begin{tikzpicture}[list/.style={rectangle split, rectangle split parts=2, draw, rectangle split horizontal}, >=stealth, start chain]
+                \node[list,on chain] (A1) {('a',1)};
+                \node[list,on chain] (A2) {('b',2)};
+                \node[list,on chain] (A3) {('c',3)};
+
+                \node[list,on chain] (B1) {'d'};
+                \node[list,on chain] (B2) {'e'};
+                \node[on chain,draw,inner sep=6pt] (B3) {};
+
+                \node[list,on chain] (C1) {4};
+                \node[list,on chain] (C2) {5};
+                \node[on chain,draw,inner sep=6pt] (C3) {};
+
+                \draw (B3.north east) -- (B3.south west);
+                \draw (C3.north east) -- (C3.south west);
+                \draw[*->] let \p1 = (A1.two), \p2 = (A1.center) in (\x1,\y2) -- (A2);
+                \draw[*->] let \p1 = (A2.two), \p2 = (A2.center) in (\x1,\y2) -- (A3);
+                \draw[*->] let \p1 = (A3.two), \p2 = (A3.center) in (\x1,\y2) -- (B1);
+                \draw[*->] let \p1 = (A3.two), \p2 = (A3.center) in (\x1,\y2) -- (C1);
+
+                \draw[*->] let \p1 = (B1.two), \p2 = (B1.center) in (\x1,\y2) -- (B2);
+                \draw[*->] let \p1 = (B2.two), \p2 = (B2.center) in (\x1,\y2) -- (B3);
+
+                \draw[*->] let \p1 = (C1.two), \p2 = (C1.center) in (\x1,\y2) -- (C2);
+                \draw[*->] let \p1 = (C2.two), \p2 = (C2.center) in (\x1,\y2) -- (C3);
+            \end{tikzpicture}
+        }
+    \end{frame}
 \end{document}
