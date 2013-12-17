@@ -8,7 +8,7 @@
 
 \usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
                 decorations.pathreplacing,decorations.pathmorphing,shapes,%
-                matrix,shapes.symbols}
+                matrix,shapes.symbols,fit}
 
 \tikzset{
     >=stealth',
@@ -331,5 +331,51 @@ listC = listA ++ listB              // Concatenation
 listD = 0 : listC                   // Insert
 // listD = [0, 1, 2, 3, 4, 5, 6, 7, 8]
         \end{lstlisting}
+    \end{frame}
+
+% FRAME:LIST FUNCTIONS
+    \begin{frame}[fragile=singleslide]
+        \frametitle{List Functions}
+
+        \begin{columns}[c]
+            \begin{column}[T]{5cm}
+                \begin{description}
+                    \item[head] \hfill \\
+                        The first element in a list.
+                    \item[tail] \hfill \\
+                        All remaining elements in a list.
+                \end{description}
+            \end{column}
+            \begin{column}[T]{5cm}
+                \adjustbox{scale=0.5} {
+                    \begin{tikzpicture}[list/.style={rectangle split, rectangle split parts=2, draw, rectangle split horizontal}, >=stealth, start chain]
+                        \node[list,on chain] (A) {12};
+                        \node[list,on chain] (B) {99};
+                        \node[list,on chain] (C) {37};
+                        \node[list,on chain] (D) {43};
+                        \node[on chain,draw,inner sep=6pt] (E) {};
+                        \draw (E.north east) -- (E.south west);
+                        \draw (E.north west) -- (E.south west);
+                        \draw[*->] let \p1 = (A.two), \p2 = (A.center) in (\x1,\y2) -- (B);
+                        \draw[*->] let \p1 = (B.two), \p2 = (B.center) in (\x1,\y2) -- (C);
+                        \draw[*->] let \p1 = (C.two), \p2 = (C.center) in (\x1,\y2) -- (D);
+                        \draw[*->] let \p1 = (D.two), \p2 = (D.center) in (\x1,\y2) -- (E);
+
+                        \tikzset{blue dotted/.style={draw=blue!50!white, line width=1pt,
+                                    dash pattern=on 1pt off 4pt on 6pt off 4pt,
+                                    inner sep=4mm, rectangle, rounded corners}};
+
+                        \node (first dotted box) [blue dotted, 
+                                                    fit = (A) ] {};
+                        \node (second dotted box) [blue dotted,
+                                                    fit = (B) (D)] {};
+
+                        \node at (first dotted box.north) [above, inner sep=3mm] {\textbf{head}};
+                        \node at (second dotted box.north) [above, inner sep=3mm] {\textbf{tail}};
+
+                    \end{tikzpicture}
+                }
+            \end{column}
+        \end{columns}
     \end{frame}
 \end{document}
