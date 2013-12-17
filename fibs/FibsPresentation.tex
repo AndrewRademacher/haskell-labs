@@ -8,7 +8,7 @@
 
 \usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
                 decorations.pathreplacing,decorations.pathmorphing,shapes,%
-                matrix,shapes.symbols,fit}
+                matrix,shapes.symbols,fit,scopes}
 
 \tikzset{
     >=stealth',
@@ -412,32 +412,65 @@ complex =
     \begin{frame}[fragile=singleslide]
         \frametitle{Zip (Lists and Tuples)}
 
-        \adjustbox{scale=0.5} {
-            \begin{tikzpicture}[list/.style={rectangle split, rectangle split parts=2, draw, rectangle split horizontal}, >=stealth, start chain]
-                \node[list,on chain] (A1) {('a',1)};
-                \node[list,on chain] (A2) {('b',2)};
-                \node[list,on chain] (A3) {('c',3)};
+        \adjustbox{scale=0.7} {
+            \begin{tikzpicture}[
+            list/.style={
+                rectangle split,
+                rectangle split parts=2,
+                draw,
+                rectangle split horizontal
+            },
+            blue dotted/.style={
+                draw=blue!50!white,
+                line width=1pt,
+                dash pattern=on 1pt off 4pt on 6pt off 4pt,
+                inner sep=4mm,
+                rectangle,
+                rounded corners
+            },
+            node distance=2mm and 1cm]
+                { [start chain=zip]
+                    \node[list,on chain] (A1) {('a',1)};
+                    \node[list,on chain] (A2) {('b',2)};
+                    \node[list,on chain] (A3) {('c',3)};
+                    \node[on chain,draw,rectangle] (zip) {zip};
+                    { [start branch=letters going right]
+                        \node[list,on chain, above=2cm] (B1) {'d'};
+                        \node[list,on chain] (B2) {'e'};
+                        \node[on chain,draw,inner sep=6pt] (B3) {};
+                   
+                        \draw (B3.north east) -- (B3.south west);
+                        \draw[*->] let \p1 = (B1.two), \p2 = (B1.center) in (\x1,\y2) -- (B2);
+                        \draw[*->] let \p1 = (B2.two), \p2 = (B2.center) in (\x1,\y2) -- (B3);
+                        \draw[->] (zip) -- (B1);
 
-                \node[list,on chain] (B1) {'d'};
-                \node[list,on chain] (B2) {'e'};
-                \node[on chain,draw,inner sep=6pt] (B3) {};
+                        \node (letters dotted box) [blue dotted, fit = (B1) (B3)] {};
+                        \node at (letters dotted box.north) [above, inner sep=3mm] {\textbf{List of Char}};
+                        \node at (letters dotted box.south) [below, inner sep=3mm] {\textbf{Input A}};
+                    }
+                    { [start branch=numbers going right]
+                        \node[list,on chain, below=2cm] (C1) {4};
+                        \node[list,on chain] (C2) {5};
+                        \node[on chain,draw,inner sep=6pt] (C3) {};
+                        
+                        \draw (C3.north east) -- (C3.south west);
+                        \draw[*->] let \p1 = (C1.two), \p2 = (C1.center) in (\x1,\y2) -- (C2);
+                        \draw[*->] let \p1 = (C2.two), \p2 = (C2.center) in (\x1,\y2) -- (C3);
+                        \draw[->] (zip) -- (C1);
 
-                \node[list,on chain] (C1) {4};
-                \node[list,on chain] (C2) {5};
-                \node[on chain,draw,inner sep=6pt] (C3) {};
+                        \node (numbers dotted box) [blue dotted, fit = (C1) (C3)] {};
+                        \node at (numbers dotted box.north) [above, inner sep=3mm] {\textbf{List of Int}};
+                        \node at (numbers dotted box.south) [below, inner sep=3mm] {\textbf{Input B}};
+                    }
 
-                \draw (B3.north east) -- (B3.south west);
-                \draw (C3.north east) -- (C3.south west);
-                \draw[*->] let \p1 = (A1.two), \p2 = (A1.center) in (\x1,\y2) -- (A2);
-                \draw[*->] let \p1 = (A2.two), \p2 = (A2.center) in (\x1,\y2) -- (A3);
-                \draw[*->] let \p1 = (A3.two), \p2 = (A3.center) in (\x1,\y2) -- (B1);
-                \draw[*->] let \p1 = (A3.two), \p2 = (A3.center) in (\x1,\y2) -- (C1);
+                    \draw[*->] let \p1 = (A1.two), \p2 = (A1.center) in (\x1,\y2) -- (A2);
+                    \draw[*->] let \p1 = (A2.two), \p2 = (A2.center) in (\x1,\y2) -- (A3);
+                    \draw[*->] let \p1 = (A3.two), \p2 = (A2.center) in (\x1,\y2) -- (zip);
 
-                \draw[*->] let \p1 = (B1.two), \p2 = (B1.center) in (\x1,\y2) -- (B2);
-                \draw[*->] let \p1 = (B2.two), \p2 = (B2.center) in (\x1,\y2) -- (B3);
-
-                \draw[*->] let \p1 = (C1.two), \p2 = (C1.center) in (\x1,\y2) -- (C2);
-                \draw[*->] let \p1 = (C2.two), \p2 = (C2.center) in (\x1,\y2) -- (C3);
+                    \node (zip dotted box) [blue dotted, fit = (A1) (A3)] {};
+                    \node at (zip dotted box.north) [above, inner sep=3mm] {\textbf{List of Tuple}};
+                    \node at (zip dotted box.south) [below, inner sep=3mm] {\textbf{Output}};
+                }
             \end{tikzpicture}
         }
     \end{frame}
