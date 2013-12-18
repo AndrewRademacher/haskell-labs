@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage{mathtools}
 \usepackage{tikz}
+\usepackage[T1]{fontenc}
 
 \usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
                 decorations.pathreplacing,decorations.pathmorphing,shapes,%
@@ -501,5 +502,20 @@ lZipped = zip lLetters lNumbers
 lReversed = zip lNumbers lLetters
 // lReversed = [(1,'a'), (2,'b'), (3,'c'), (4,'d')]
         \end{lstlisting}
+    \end{frame}
+
+% FRAME:LIST COMPREHENSION
+    \begin{frame}[fragile=singleslide]
+        \frametitle{List Comprehension}
+
+        \begin{lstlisting}
+powers = [ 2^x | x <- [1, 2, 3, 4, 5] ]
+// powers = [2, 4, 8, 16, 32]
+        \end{lstlisting}
+        
+        \begin{description}
+            \item[|] "for every"
+            \item[<-] "that is an element of"
+        \end{description}
     \end{frame}
 \end{document}
