@@ -624,4 +624,79 @@ z = zip fibs (tail fibs)
             \end{tikzpicture}
         }
     \end{frame}
+
+% FRAME:BUILD A COMPREHENSION
+    \begin{frame}[fragile=singleslide]
+        \frametitle{Building a Comprehension}
+
+        \begin{figure}
+            \begin{lstlisting}
+fibs = 1 : 1 : [2, 3, 5, 8]
+
+fibs2 = [ a + b | (a, b) <- zip fibs (tail fibs) ]
+// fibs2 = [2, 3, 5, 8, 13]
+            \end{lstlisting}
+        \end{figure}
+
+        \begin{itemize}
+            \item[zip] The "zip fibs (tail fibs)" statement produces a list of tuples.
+            \item[(a, b)] We bind each tuple to the names "a" and "b".
+            \item[a + b] Each item in fibs2 is the sum of each tuple.
+            \item Each element of fibs2 is the sum of "a" and "b", where "a" and "b" are elements of zipping together fibs and the tail of fibs.
+        \end{itemize}
+    \end{frame}
+
+% FRAME:SECRET SAUCE
+    \begin{frame}[fragile=singleslide]
+        \frametitle{Lazy Evaluation (Haskell's secret sauce).}
+
+        \begin{figure}
+            \begin{lstlisting}
+a = 2
+b = 3 + 6
+
+main = do
+        putStrLn "Hello, World!"
+        putStrLn (show (a + b))
+            \end{lstlisting}
+        \end{figure}
+        \begin{itemize}
+            \item[b] The value of 3 + 6 is not evaluated immediately.
+            \item[putStrLn] This call prints to the screen, and requires full evaluation.
+            \item[show] Converts arbitrary types to a string.
+            \item The value of b is not evaluated until line 6 when it is printed to the console.
+        \end{itemize}
+    \end{frame}
+
+% FRAME:MERGING FIBS AND FIBS2
+    \begin{frame}[fragile=singleslide]
+        \frametitle{Merging Fibs and Fibs2}
+
+        \begin{figure}
+            \begin{lstlisting}
+fibs = 1 : 1 : [ a + b | (a, b) <- zip fibs (tail fibs) ]
+            \end{lstlisting}
+        \end{figure}
+
+        \begin{columns}[c]
+            \begin{column}[T]{5cm}
+                Properties of Fib Sequence
+                \begin{itemize}
+                    \item Sequence is infinite.
+                    \item Sequence is self-referencing.
+                    \item Values grow exponentially.
+                    \item Values are always positive.
+                \end{itemize}
+            \end{column}
+            \begin{column}[T]{5cm}
+                Properties of Haskell Implementation
+                \begin{itemize}
+                    \item fibs is and infinite sequence.
+                    \item fibs references itself in its definition.
+                    \item Integer values in Haskell support infinite precision.
+                    \item It is impossible for a negative value to be produced.
+                \end{itemize}
+            \end{column}
+        \end{columns}
+    \end{frame}
 \end{document}
