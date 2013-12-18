@@ -206,8 +206,6 @@ fibs = 1 : 1 : [ a + b | (a, b) <- zip fibs (tail fibs) ]
 
 % FRAME:WHAT
     \begin{frame}[fragile=singleslide]
-        \frametitle{What just happened?}
-
         \begin{figure}
             \centering
             \includegraphics[scale=0.35]{./fibs/images/lolwutpear.jpg}
@@ -517,5 +515,31 @@ powers = [ 2^x | x <- [1, 2, 3, 4, 5] ]
             \item[|] "for every"
             \item[<-] "that is an element of"
         \end{description}
+    \end{frame}
+
+% FRAME:ON TO THE FIBS
+    \begin{frame}[fragile=singleslide]
+        \begin{figure}
+            \centering
+            \includegraphics[scale=0.35]{./fibs/images/dalek-to-victory.jpg}
+        \end{figure}
+    \end{frame}
+
+% FRAME:BUILDING A LIST
+    \begin{frame}[fragile=singleslide]
+        \frametitle{Begin with a List}
+
+        \begin{figure}
+            \begin{lstlisting}
+fibs = [1, 1, 2, 3, 5]
+            \end{lstlisting}
+            \caption{Define the sequence explicitly.}
+        \end{figure}
+        \begin{figure}
+            \begin{lstlisting}
+fibs = 1 : 1 : [2, 3, 5]
+            \end{lstlisting}
+            \caption{Define only the first two fibs, then use some programmatic definition for the rest of the sequence.}
+        \end{figure}
     \end{frame}
 \end{document}
