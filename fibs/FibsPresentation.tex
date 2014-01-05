@@ -631,6 +631,28 @@ powers = [ 2^x | x <- [1, 2, 3, 4, 5] ]
         \end{description}
     \end{frame}
 
+% FRAME:SECRET SAUCE
+    \begin{frame}[fragile=singleslide]
+        \frametitle{Lazy Evaluation (Haskell's secret sauce).}
+
+        \begin{figure}
+            \begin{lstlisting}
+a = 2
+b = 3 + 6
+
+main = do
+        putStrLn "Hello, World!"
+        putStrLn (show (a + b))
+            \end{lstlisting}
+        \end{figure}
+        \begin{itemize}
+            \item[b] The value of 3 + 6 is not evaluated immediately.
+            \item[putStrLn] This call prints to the screen, and requires full evaluation.
+            \item[show] Converts arbitrary types to a string.
+            \item The value of b is not evaluated until line 6 when it is printed to the console.
+        \end{itemize}
+    \end{frame}
+
 % FRAME:ON TO THE FIBS
     \begin{frame}[fragile=singleslide]
         \begin{figure}
@@ -757,28 +779,6 @@ fibs2 = [ a + b | (a, b) <- zip fibs (tail fibs) ]
             \item[(a, b)] We bind each tuple to the names "a" and "b".
             \item[a + b] Each item in fibs2 is the sum of each tuple.
             \item Each element of fibs2 is the sum of "a" and "b", where "a" and "b" are elements of zipping together fibs and the tail of fibs.
-        \end{itemize}
-    \end{frame}
-
-% FRAME:SECRET SAUCE
-    \begin{frame}[fragile=singleslide]
-        \frametitle{Lazy Evaluation (Haskell's secret sauce).}
-
-        \begin{figure}
-            \begin{lstlisting}
-a = 2
-b = 3 + 6
-
-main = do
-        putStrLn "Hello, World!"
-        putStrLn (show (a + b))
-            \end{lstlisting}
-        \end{figure}
-        \begin{itemize}
-            \item[b] The value of 3 + 6 is not evaluated immediately.
-            \item[putStrLn] This call prints to the screen, and requires full evaluation.
-            \item[show] Converts arbitrary types to a string.
-            \item The value of b is not evaluated until line 6 when it is printed to the console.
         \end{itemize}
     \end{frame}
 
