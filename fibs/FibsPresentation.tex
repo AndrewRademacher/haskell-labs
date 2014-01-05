@@ -109,7 +109,7 @@
             \begin{column}[T]{5cm}
                 \begin{figure}
                     \centering
-                    \includegraphics[height=3cm]{./fibs/images/FibonacciBlocks.png}
+                    \includegraphics[height=3cm]{./images/FibonacciBlocks.png}
                 \end{figure}
 
                 \begin{figure}
@@ -208,7 +208,7 @@ fibs = 1 : 1 : [ a + b | (a, b) <- zip fibs (tail fibs) ]
     \begin{frame}[fragile=singleslide]
         \begin{figure}
             \centering
-            \includegraphics[scale=0.35]{./fibs/images/lolwutpear.jpg}
+            \includegraphics[scale=0.35]{./images/lolwutpear.jpg}
         \end{figure}
     \end{frame}
 
@@ -419,7 +419,75 @@ complex =
         \end{columns}
     \end{frame}
 
-% FRAME:ZIP FUNCTION
+% FRAME:ZIP FUNCTION (1)
+    \begin{frame}[fragile=singleslide]
+        \frametitle{Zip (Lists and Tuples)}
+
+        \adjustbox{scale=0.7} {
+            \begin{tikzpicture}[
+            list/.style={
+                rectangle split,
+                rectangle split parts=2,
+                draw,
+                rectangle split horizontal
+            },
+            blue dotted/.style={
+                draw=blue!50!white,
+                line width=1pt,
+                dash pattern=on 1pt off 4pt on 6pt off 4pt,
+                inner sep=4mm,
+                rectangle,
+                rounded corners
+            },
+            node distance=2mm and 1cm]
+                { [start chain=zip]
+                    \node[on chain,draw,rectangle] (zip) {zip};
+                    { [start branch=letters going right]
+                        \node[list,on chain, above=2cm] (B1) {'a'};
+                        \node[list,on chain] (B2) {'b'};
+                        \node[list,on chain] (B3) {'c'};
+                        \node[list,on chain] (B4) {'d'};
+                        \node[list,on chain] (B5) {'e'};
+                        \node[on chain,draw,inner sep=6pt] (B6) {};
+                   
+                        \draw (B6.north east) -- (B6.south west);
+                        \draw[*->] let \p1 = (B1.two), \p2 = (B1.center) in (\x1,\y2) -- (B2);
+                        \draw[*->] let \p1 = (B2.two), \p2 = (B2.center) in (\x1,\y2) -- (B3);
+                        \draw[*->] let \p1 = (B3.two), \p2 = (B3.center) in (\x1,\y2) -- (B4);
+                        \draw[*->] let \p1 = (B4.two), \p2 = (B4.center) in (\x1,\y2) -- (B5);
+                        \draw[*->] let \p1 = (B5.two), \p2 = (B5.center) in (\x1,\y2) -- (B6);
+                        \draw[->] (zip) -- (B1);
+
+                        \node (letters dotted box) [blue dotted, fit = (B1) (B6)] {};
+                        \node at (letters dotted box.north) [above, inner sep=3mm] {\textbf{List of Char}};
+                        \node at (letters dotted box.south) [below, inner sep=3mm] {\textbf{Input A}};
+                    }
+                    { [start branch=numbers going right]
+                        \node[list,on chain, below=2cm] (C1) {1};
+                        \node[list,on chain] (C2) {2};
+                        \node[list,on chain] (C3) {3};
+                        \node[list,on chain] (C4) {4};
+                        \node[list,on chain] (C5) {5};
+                        \node[on chain,draw,inner sep=6pt] (C6) {};
+                        
+                        \draw (C6.north east) -- (C6.south west);
+                        \draw[*->] let \p1 = (C1.two), \p2 = (C1.center) in (\x1,\y2) -- (C2);
+                        \draw[*->] let \p1 = (C2.two), \p2 = (C2.center) in (\x1,\y2) -- (C3);
+                        \draw[*->] let \p1 = (C3.two), \p2 = (C3.center) in (\x1,\y2) -- (C4);
+                        \draw[*->] let \p1 = (C4.two), \p2 = (C4.center) in (\x1,\y2) -- (C5);
+                        \draw[*->] let \p1 = (C5.two), \p2 = (C5.center) in (\x1,\y2) -- (C6);
+                        \draw[->] (zip) -- (C1);
+
+                        \node (numbers dotted box) [blue dotted, fit = (C1) (C6)] {};
+                        \node at (numbers dotted box.north) [above, inner sep=3mm] {\textbf{List of Int}};
+                        \node at (numbers dotted box.south) [below, inner sep=3mm] {\textbf{Input B}};
+                    }
+                }
+            \end{tikzpicture}
+        }
+    \end{frame}
+
+% FRAME:ZIP FUNCTION (2)
     \begin{frame}[fragile=singleslide]
         \frametitle{Zip (Lists and Tuples)}
 
@@ -485,12 +553,58 @@ complex =
             \end{tikzpicture}
         }
     \end{frame}
+    
+% FRAME:ZIP FUNCTION (3)
+    \begin{frame}[fragile=singleslide]
+        \frametitle{Zip (Lists and Tuples)}
+
+        \adjustbox{scale=0.7} {
+            \begin{tikzpicture}[
+            list/.style={
+                rectangle split,
+                rectangle split parts=2,
+                draw,
+                rectangle split horizontal
+            },
+            blue dotted/.style={
+                draw=blue!50!white,
+                line width=1pt,
+                dash pattern=on 1pt off 4pt on 6pt off 4pt,
+                inner sep=4mm,
+                rectangle,
+                rounded corners
+            },
+            node distance=2mm and 1cm]
+                { [start chain=zip]
+                    \node[list,on chain] (A1) {('a',1)};
+                    \node[list,on chain] (A2) {('b',2)};
+                    \node[list,on chain] (A3) {('c',3)};
+                    \node[list,on chain] (A4) {('d',4)};
+                    \node[list,on chain] (A5) {('e',5)};
+                    \node[on chain,draw,inner sep=6pt] (A6) {};
+
+                    \draw[*->] let \p1 = (A1.two), \p2 = (A1.center) in (\x1,\y2) -- (A2);
+                    \draw[*->] let \p1 = (A2.two), \p2 = (A2.center) in (\x1,\y2) -- (A3);
+                    \draw[*->] let \p1 = (A3.two), \p2 = (A3.center) in (\x1,\y2) -- (A4);
+                    \draw[*->] let \p1 = (A4.two), \p2 = (A4.center) in (\x1,\y2) -- (A5);
+                    \draw[*->] let \p1 = (A5.two), \p2 = (A5.center) in (\x1,\y2) -- (A6);
+                    \draw (A6.north east) -- (A6.south west);
+
+                    \node (zip dotted box) [blue dotted, fit = (A1) (A6)] {};
+                    \node at (zip dotted box.north) [above, inner sep=3mm] {\textbf{List of Tuple}};
+                    \node at (zip dotted box.south) [below, inner sep=3mm] {\textbf{Output}};
+                }
+            \end{tikzpicture}
+        }
+    \end{frame}
 
 % FRAME:ZIP EXAMPLE
     \begin{frame}[fragile=singleslide]
         \frametitle{Zip (Lists and Tuples)}
 
         \begin{lstlisting}
+// zip :: [a] -> [b] -> [(a,b)]        
+        
 lLetters = ['a', 'b', 'c', 'd']
 lNumbers = [1, 2, 3, 4]
 
@@ -521,7 +635,7 @@ powers = [ 2^x | x <- [1, 2, 3, 4, 5] ]
     \begin{frame}[fragile=singleslide]
         \begin{figure}
             \centering
-            \includegraphics[scale=0.35]{./fibs/images/dalek-to-victory.jpg}
+            \includegraphics[scale=0.35]{./images/dalek-to-victory.jpg}
         \end{figure}
     \end{frame}
 

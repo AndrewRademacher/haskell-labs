@@ -9,6 +9,7 @@ cabal.sandbox.config
 *.swp
 *.swo
 
+*.gz
 *.aux
 *.dvi
 *.log
