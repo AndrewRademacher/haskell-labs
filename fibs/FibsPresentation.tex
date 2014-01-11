@@ -93,6 +93,20 @@
 % FRAME:TITLE
     \frame{\titlepage}
 
+% FRAME:GOAL
+	\begin{frame}
+		\frametitle{Objectives}
+		
+		\begin{itemize}
+			\item Demonstrate the extreme value of Haskell
+			\item Bust myths about the "difficulty" of using Haskell
+			\item Encourage further research and interest in Haskell
+		\end{itemize}
+		
+		Prior knowledge in functional programming is not require, but 
+		programming experience is helpful.
+	\end{frame}
+
 % FRAME:FIBONACCI
     \begin{frame}
         \frametitle{The Fibonacci Sequence}
@@ -813,4 +827,22 @@ fibs = 1 : 1 : [ a + b | (a, b) <- zip fibs (tail fibs) ]
             \end{column}
         \end{columns}
     \end{frame}
+
+% FRAME:GITHUB
+	\begin{frame}[fragile=singleslide]
+		\frametitle{Contact and GitHub}
+		
+		Contact Me
+		\begin{itemize}
+			\item[Email] andrewrademacher@gmail.com
+			\item[GitHub] https://github.com/AndrewRademacher
+			\item[LinkedIn] http://www.linkedin.com/in/andrewrademacher
+		\end{itemize}
+		
+		Get the Presentation
+		\begin{itemize}
+			\item[Repo] https://github.com/AndrewRademacher/haskell-labs/tree/master/fibs
+			\item[Slides] https://github.com/AndrewRademacher/haskell-labs/tree/master/fibs/FibsPresentation.pdf
+		\end{itemize}
+	\end{frame}
 \end{document}
