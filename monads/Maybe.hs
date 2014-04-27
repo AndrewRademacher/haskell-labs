@@ -40,6 +40,13 @@ getWorkLine2 p = case workAddress p of
                     Nothing   -> Nothing
                     Just addr -> line2 addr
 
+--  Monadic Solution
+instance Monad Maybe where
+    (Just x) >>= k      = k x
+    Nothing  >>= _      = Nothing
+
+    return              = Just
+
 main :: IO ()
 main = do
         print $ middleName john
@@ -48,8 +55,16 @@ main = do
         --print $ line2 $ homeAddress john
         --print $ line2 $ homeAddress jane
 
+--  Non-Monadic Solution
         print $ getHomeLine2 john
         print $ getHomeLine2 jane
 
         print $ getWorkLine2 john
         print $ getWorkLine2 jane
+
+--  Monadic Solution
+        print $ homeAddress john >>= line2
+        print $ homeAddress jane >>= line2
+
+        print $ workAddress john >>= line2
+        print $ workAddress jane >>= line2
