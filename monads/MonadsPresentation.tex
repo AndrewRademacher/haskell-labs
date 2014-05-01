@@ -1,11 +1,89 @@
 \documentclass{beamer}
 
+\usepackage{listings}
+
 \begin{document}
     \title{The Simple Monad}
     \subtitle{Solving for null pointer exceptions with monads}
     \author{Andrew Rademacher}
 
+    \definecolor{dkgreen}{rgb}{0,0.6,0}
+    \definecolor{gray}{rgb}{0.5,0.5,0.5}
+    \definecolor{mauve}{rgb}{0.58,0,0.82}
+
+    \lstset{
+        frame=tb,
+        basicstyle=\ttfamily,
+        columns=flexible,
+        breaklines=true,
+        breakwhitespace=true,
+        aboveskip=3mm,
+        belowskip=3mm,
+        showstringspaces=false,
+        numbers=left,
+        numberstyle=\tiny\color{gray},
+        keywordstyle=\color{blue},
+        commentstyle=\color{dkgreen},
+        stringstyle=\color{mauve},
+        tabsize=3
+    }
+
 % FRAME: TITLE
     \frame{\titlepage}
+
+% FRAME: GOAL
+    \begin{frame}
+        \frametitle{Objectives}
+
+    \end{frame}
+
+%FRAME: A MONAD IS NOT
+    \begin{frame}
+        \frametitle{A Monad is \ldots}
+
+        \begin{itemize}
+            \item Not impure.
+            \item Not about effects.
+            \item Not about state.
+            \item Not about sequencing.
+            \item Not about I/O.
+            \item Not dependent on laziness.
+            \item Not a back-door to cheat on immutability.
+        \end{itemize}
+
+        If you think that a monad has to do with anything above,
+        check yourself before you wreck yourself.
+    \end{frame}
+
+%FRAME: A Problem Statement
+    \lstset{language=Java}
+    \begin{frame}[fragile=singleslide]
+        \frametitle{Assume for a moment.}
+
+        \begin{columns}[c]
+            \begin{column}[T]{5cm}
+                \begin{lstlisting}
+class Person {
+    String firstName;
+    String middleName;
+    String lastName;
+    Address homeAddress;
+    Address workAddress;
+}
+                \end{lstlisting}
+            \end{column}
+            \begin{column}[T]{5cm}
+                \begin{lstlisting}
+class Address {
+    String line1;
+    String line2;
+    String city;
+    String state;
+    int zipCode;
+}
+                \end{lstlisting}
+            \end{column}
+        \end{columns}    
+    \end{frame}
 
 \end{document}
