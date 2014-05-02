@@ -4,6 +4,7 @@
     "a-monad-is.md",
     [
         "java-model.md",
-        "java-get.md"
+        "java-get.md",
+        "java-solution.md"
     ]
 ]
