@@ -12,6 +12,10 @@
         "haskell-intro.md",
         "haskell-model.md",
         "haskell-null.md",
-        "haskell-maybe.md"
-    ]
+        "haskell-maybe.md",
+        "haskell-model-full.md",
+        "haskell-line2.md",
+        "haskell-case.md"
+    ],
+    "problem-summary.md"
 ]
