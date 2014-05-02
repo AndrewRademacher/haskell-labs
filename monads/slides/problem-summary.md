@@ -1,5 +1,5 @@
 
-<h3 class="fragment">What have we gained?</h3>
+<h3>What have we gained?</h3>
 
 <ul>
     <li class="fragment">Null-Pointer exceptions are no possible.</li>
