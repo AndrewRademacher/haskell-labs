@@ -1,4 +1,4 @@
-##  Java Example
+##  Problem Example
 
 Imagine for a moment you have the following data mode.
 
