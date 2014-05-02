@@ -83,7 +83,17 @@ class Address {
 }
                 \end{lstlisting}
             \end{column}
-        \end{columns}    
+        \end{columns}
+        * All fields are public    
+    \end{frame}
+
+    \begin{frame}[fragile=singleslide]
+        \frametitle{How do you access line2?}
+
+        \begin{lstlisting}
+Person p;
+String line2 = p.homeAddress.line2;
+        \end{lstlisting}
     \end{frame}
 
 \end{document}
