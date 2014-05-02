@@ -17,5 +17,9 @@
         "haskell-line2.md",
         "haskell-case.md"
     ],
-    "problem-summary.md"
+    "problem-summary.md",
+    [
+        "monad-definition.md",
+        "monad-maybe.md"
+    ]
 ]
