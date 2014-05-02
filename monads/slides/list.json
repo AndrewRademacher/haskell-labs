@@ -1,0 +1,21 @@
+[
+    "index.md",
+    "objectives.html",
+    "a-monad-is.md",
+    [
+        "java-model.md",
+        "java-get.md",
+        "java-solution.md"
+    ],
+    "null-is-bull.md",
+    [
+        "haskell-intro.md",
+        "haskell-model.md",
+        "haskell-null.md",
+        "haskell-maybe.md",
+        "haskell-model-full.md",
+        "haskell-line2.md",
+        "haskell-case.md"
+    ],
+    "problem-summary.md"
+]
