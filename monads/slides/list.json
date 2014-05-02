@@ -11,6 +11,7 @@
     [
         "haskell-intro.md",
         "haskell-model.md",
-        "haskell-null.md"
+        "haskell-null.md",
+        "haskell-maybe.md"
     ]
 ]
