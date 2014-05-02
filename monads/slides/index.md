@@ -1,10 +1,4 @@
 
-# The Simple Monad
-
-From the terminal, pop in:
-
-  ```yo reveal:slide "Slide Title"```
-
-Available options:
-
- ```--markdown --attributes --notes```
+# No Math Monads 
+### Solving for null pointer exceptions with monads
+#### -Andrew Rademacher
