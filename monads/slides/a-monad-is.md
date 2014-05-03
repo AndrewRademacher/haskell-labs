@@ -1,8 +1,10 @@
 ## A Monad is...
 
-* Not impure.
-* Not about effects.
-* Not about state.
-* Not about sequencing.
-* Not about I/O.
-* Not a back-door to cheat on immutability.
+<ul>
+    <li class="fragment">Not impure.</li>
+    <li class="fragment">Not about effects.</li>
+    <li class="fragment">Not about state.</li>
+    <li class="fragment">Not about sequencing.</li>
+    <li class="fragment">Not about I/O.</li>
+    <li class="fragment">Not a back-door to cheat on immutability.</li>
+</ul>
