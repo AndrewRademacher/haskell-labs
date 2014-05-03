@@ -1,6 +1,6 @@
 ##  Problem Example
 
-Imagine for a moment you have the following data mode.
+Imagine for a moment you have the following data model.
 
 ```java
 public class Person {
