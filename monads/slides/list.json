@@ -34,5 +34,6 @@
         "deep-nesting-get.md"
     ],
     "many-the-monads.md",
-    "monad-laws.md"
+    "monad-laws.md",
+    "contact.md"
 ]
