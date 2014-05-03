@@ -27,5 +27,10 @@
         "monad-w2-data.md",
         "monad-w2-bind.md"
     ],
-    "monad-summary.md"
+    "monad-summary.md",
+    [
+        "deep-nesting-problem.md",
+        "deep-nesting-path.md",
+        "deep-nesting-get.md"
+    ]
 ]
