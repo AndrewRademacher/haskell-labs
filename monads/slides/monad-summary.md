@@ -8,8 +8,8 @@
 
 <br>
 
-<h3 class="fragment">What is still missing?</h3>
+<h3 class="fragment">What have we gained?</h3>
 
 <ul>
-    <li class="fragment">We still have to manually check for empty values, when field is optional.</li>
+    <li class="fragment">The bind function automatically checks for empty values.</li>
 </ul>
