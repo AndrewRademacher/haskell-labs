@@ -32,5 +32,7 @@
         "deep-nesting-problem.md",
         "deep-nesting-path.md",
         "deep-nesting-get.md"
-    ]
+    ],
+    "many-the-monads.md",
+    "monad-laws.md"
 ]
