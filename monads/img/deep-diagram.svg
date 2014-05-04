@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 640 130.6" enable-background="new 0 0 640 130.6" xml:space="preserve">
+<rect x="41.5" y="28" fill="#3F3F3F" stroke="#000000" stroke-miterlimit="10" width="80" height="52"/>
+<rect x="362.5" y="28" fill="#3F3F3F" stroke="#000000" stroke-miterlimit="10" width="80" height="52"/>
+<rect x="201.5" y="28" fill="#3F3F3F" stroke="#000000" stroke-miterlimit="10" width="80" height="52"/>
+<rect x="522.5" y="28" fill="#3F3F3F" stroke="#000000" stroke-miterlimit="10" width="80" height="52"/>
+<text transform="matrix(1 0 0 1 55.7603 59.1881)" fill="#F2F2F2" font-family="'MyriadPro-Regular'" font-size="18">Person</text>
+<text transform="matrix(1 0 0 1 229.2241 59.1881)" fill="#F2F2F2" font-family="'MyriadPro-Regular'" font-size="18">Pet</text>
+<text transform="matrix(1 0 0 1 390.2246 59.1881)" fill="#F2F2F2" font-family="'MyriadPro-Regular'" font-size="18">Pet</text>
+<text transform="matrix(1 0 0 1 536.7607 59.1881)" fill="#F2F2F2" font-family="'MyriadPro-Regular'" font-size="18">Person</text>
+<polyline fill="#7F9F7F" points="141,49.5 172.2,49.5 167.6,41.3 174.4,39 182.8,53.9 174.4,68.9 167.6,65.9 172.2,57.5 141,57.5 
+	"/>
+<polyline fill="#7F9F7F" points="301,49.5 332.5,49.5 327.9,41.3 334.7,39 343.1,53.9 334.7,68.9 327.9,65.9 332.5,57.5 301,57.5 
+	"/>
+<polyline fill="#7F9F7F" points="461,49.5 492.6,49.5 488,41.4 494.8,39.1 503.2,54.1 494.8,69 488,66 492.6,57.5 461,57.5 "/>
+<text transform="matrix(1 0 0 1 149.2684 108.9551)" fill="#EFEF8F" font-family="'MyriadPro-Regular'" font-size="18">pet</text>
+<text transform="matrix(1 0 0 1 294.1714 108.9551)" fill="#EFEF8F" font-family="'MyriadPro-Regular'" font-size="18">mother</text>
+<text transform="matrix(1 0 0 1 458.0763 108.9551)" fill="#EFEF8F" font-family="'MyriadPro-Regular'" font-size="18">owner</text>
+</svg>

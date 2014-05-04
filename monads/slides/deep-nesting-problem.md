@@ -1,6 +1,8 @@
 
 ## A Horrific Example
 
+Lets assume that we have data of this structure.
+
 ```haskell
 data Person = Person
         { personName :: Maybe String
@@ -13,5 +15,3 @@ data Pet = Pet
         , mother  :: Maybe Pet
         } deriving (Eq, Show)
 ```
-
-You need to find the name of the breeder for a person&#39;s pet.
