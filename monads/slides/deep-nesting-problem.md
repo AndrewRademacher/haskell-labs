@@ -15,3 +15,5 @@ data Pet = Pet
         , mother  :: Maybe Pet
         }
 ```
+
+Example from [A Monad is not a Burrito](https://www.youtube.com/watch?v=46Z7Hq4fhN0)
