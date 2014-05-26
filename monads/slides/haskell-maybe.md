@@ -4,9 +4,7 @@
 The base haskell library gives us a way to handle optional values.
 
 ```haskell
-data Maybe a = Nothing
-             | Just a
-             deriving (Eq, Show)
+data Maybe a = Nothing | Just a
 ```
 
 <div class="fragment">

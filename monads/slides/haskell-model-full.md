@@ -8,7 +8,7 @@ data Person = Person
             , lastName    :: String
             , homeAddress :: Address
             , workAddress :: Maybe Address
-            } deriving (Eq, Show)
+            }
 ```
 
 ```haskell
@@ -18,5 +18,5 @@ data Address = Address
             , city    :: String
             , state   :: String
             , zipCode :: Int
-            } deriving (Eq, Show)
+            }
 ```
