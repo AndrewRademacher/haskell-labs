@@ -19,7 +19,6 @@
     ],
     "problem-summary.md",
     [
-        "monad-definition.md",
         "monad-maybe.md",
         "monad-w1-data.md",
         "monad-w1-calls.md",
