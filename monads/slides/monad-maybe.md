@@ -11,7 +11,7 @@ instance Monad Maybe where
 
 <div class="fragment">
     <h4>Bind</h4>
-    <p>If the input has a value, call funciton "k" on it, otherwise return Nothing.</p>
+    <p>If the input has a value, call function "k" on it, otherwise return Nothing.</p>
     <h4>Unit</h4>
-    <p>Wrap a non-optinal value in the Maybe type.</p>
+    <p>Wrap a non-optional value in the Maybe type.</p>
 </div>
