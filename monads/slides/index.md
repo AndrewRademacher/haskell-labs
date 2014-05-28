@@ -1,4 +1,4 @@
 
-# No Math Monads 
+#A Monad is...
 ### Solving for null pointer exceptions with monads
-#### -Andrew Rademacher
+##### Andrew Rademacher

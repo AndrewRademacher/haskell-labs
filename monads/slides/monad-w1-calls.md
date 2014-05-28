@@ -16,5 +16,5 @@ line2 (Address { ... }) == Just "Apt. 235"
 </div>
 
 <div class="fragment">
-    <p>But, line2 can only operate take an "Address" as input, not a "Maybe Address"</p>
+    <p>But, line2 can only take an "Address" as input, not a "Maybe Address"</p>
 </div>
